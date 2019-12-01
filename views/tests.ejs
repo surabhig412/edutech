@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/script.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <%- include('./create_test'); %>
+      <%- include('./create_question'); %>
+      <div class="row" style="margin:10px;">
+        <div class="col-sm-8"><h1>Tests</h1></div>
+        <div class="col-sm-4">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createTest" style="margin-top:20px;">Create</button>
+          <a href="#" class="btn btn-default" id="company_logout" role="button" style="margin-top:20px;">Logout</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">Filters on status:</div>
+        <div class="col-sm-10">
+          <% if(query.status.indexOf('draft') > -1){ %>
+            <input type="checkbox" class="custom-control-input" id="draft_status" checked>
+          <% }else{ %>
+            <input type="checkbox" class="custom-control-input" id="draft_status">
+          <% } %>
+          <label class="custom-control-label" for="draft_status">Draft</label>
+          <% if(query.status.indexOf('published') > -1){ %>
+            <input type="checkbox" class="custom-control-input" id="publish_status" checked>
+          <% }else{ %>
+            <input type="checkbox" class="custom-control-input" id="publish_status">
+          <% } %>
+          <label class="custom-control-label" for="publish_status">Published</label>
+          <a href="#" class="btn btn-default" id="filters" role="button">Filter</a>
+        </div>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Creator</th>
+            <th scope="col">Description</th>
+            <th scope="col">Status</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(var i=0; i < tests.length; i++) { %>
+             <tr>
+               <td><%= tests[i].name %></td>
+               <td><%= tests[i].creator %></td>
+               <td><%= tests[i].description %></td>
+               <td><%= tests[i].status %></td>
+               <td>
+                 <button type="button" class="btn btn-primary btn-sm add-question" data-test-id='<%= tests[i].id %>' data-toggle="modal" data-target="#createQuestion">Add Question</button>
+                 <% if(tests[i].status === 'draft'){ %>
+                      <a href="#" class="btn btn-default btn-sm publish" data-test-id='<%= tests[i].id %>' id="publish" role="button">Publish</a>
+                 <% } %>
+               </td>
+             </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

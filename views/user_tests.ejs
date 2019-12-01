@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/script.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row" style="margin:10px;">
+        <div class="col-sm-8"><h1>Tests</h1></div>
+        <div class="col-sm-4">
+          <a href="#" class="btn btn-default" id="user_logout" role="button" style="margin-top:20px;">Logout</a>
+        </div>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Creator</th>
+            <th scope="col">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(var i=0; i < tests.length; i++) { %>
+             <tr class="table-row" data-href='/tests/<%= tests[i].id %>'>
+               <td><%= tests[i].name %></td>
+               <td><%= tests[i].creator %></td>
+               <td><%= tests[i].description %></td>
+             </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

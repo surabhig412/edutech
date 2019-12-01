@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/script.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row" style="margin:10px;">
+        <div class="col-sm-8"><h1>Test <%= test.name %></h1></div>
+        <div class="col-sm-4">
+          <a href="#" class="btn btn-default" id="user_logout" role="button" style="margin-top:20px;">Logout</a>
+        </div>
+      </div>
+      <p>Name: <%= test.name %></p>
+      <p>Creator: <%= test.creator %></p>
+      <p>Description: <%= test.description %></p>
+      <p>Total Time: <%= time %> minutes</p>
+      <form action="/submit_test" autocomplete="off" method="POST">
+        <% for(var i=0; i < questions.length; i++) { %>
+          <div class="form-group">
+            <dl>
+              <dt>Question Text</dt>
+              <dd><%= questions[i].question_text %></dd>
+              <dt>Question Description</dt>
+              <dd><%= questions[i].description %></dd>
+              <dt>Time</dt>
+              <dd><%= questions[i].time %> minutes</dd>
+            </dl>
+            <label for="<%= questions[i].id %>" class="col-form-label">Answer</label>
+            <input type="text" class="form-control" name='<%= questions[i].id %>'>
+          </div>
+        <% } %>
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3">
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

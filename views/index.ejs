@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1 style="text-align: center;">Welcome to Edutech</h1>
+      <div class="well">
+        <div class="panel-body">
+          <div class="row">
+            <h2 style="text-align: center;">User Login</h2>
+            <div class="row row-sm-offset-3">
+              <div class="col-sm-6 col-sm-offset-3">
+                <form class="loginForm1" action="/user_login" autocomplete="off" method="POST">
+                  <div class="input-group"><span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <input class="form-control" type="text" name="username" placeholder="Username">
+                  </div><span class="help-block"></span>
+                  <div class="input-group"><span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                    <input class="form-control" type="password" name="password" placeholder="Password">
+                  </div><br>
+                  <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <h2 style="text-align: center;">Company Login</h2>
+            <div class="row row-sm-offset-3">
+              <div class="col-sm-6 col-sm-offset-3">
+                <form class="loginForm2" action="/company_login" autocomplete="off" method="POST">
+                  <div class="input-group"><span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <input class="form-control" type="text" name="username" placeholder="Username">
+                  </div><span class="help-block"></span>
+                  <div class="input-group"><span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                    <input class="form-control" type="password" name="password" placeholder="Password">
+                  </div><br>
+                  <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
